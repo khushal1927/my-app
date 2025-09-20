@@ -1,5 +1,5 @@
 "use client";
-import { useChat } from 'ai/react';
+import { useChat, Message } from 'ai/react';
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -7,7 +7,7 @@ export default function Chat() {
   return (
     <div>
       <div>
-        {messages.map((m, i) => (
+        {messages.map((m: Message, i: number) => (
           <div key={i}><b>{m.role}:</b> {m.content}</div>
         ))}
       </div>
@@ -18,3 +18,4 @@ export default function Chat() {
     </div>
   );
 }
+
